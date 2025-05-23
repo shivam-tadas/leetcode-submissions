@@ -8,10 +8,6 @@ A collection of my solutions to LeetCode problems.
 - **C++** - Secondary language for performance-critical problems
 - **Java** - Occasional solutions for specific use cases
 
-## File Naming Convention
-
-Example: `001_two_sum.py`, `042_trapping_rain_water.cpp`
-
 ## Running the Solutions
 
 ### Python
