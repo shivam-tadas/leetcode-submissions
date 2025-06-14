@@ -9,17 +9,19 @@ class Solution:
     def sumNumbers(self, root: Optional[TreeNode]) -> int:
         self.nums = []
         self.root = root
-        self.sumNumbersDFS(root, str(root.val))
+        self.sumNumbersDFS(root, root.val)
         return sum(self.nums)
 
-    def sumNumbersDFS(self, node: Optional[TreeNode], currNum: str) -> None:
+    def sumNumbersDFS(self, node: Optional[TreeNode], currNum: int) -> None:
         if not (node.left or node.right):
             print("Added", currNum)
             self.nums.append(int(currNum))
             return
 
         if node.left:
-            self.sumNumbersDFS(node.left, currNum + str(node.left.val))
+            # "Append" a digit at the end of the number by multiplying
+            # existing number by 10 then adding new digit from node value
+            self.sumNumbersDFS(node.left, currNum * 10 + node.left.val)
 
         if node.right:
-            self.sumNumbersDFS(node.right, currNum + str(node.right.val))
+            self.sumNumbersDFS(node.right, currNum * 10 + node.right.val)
