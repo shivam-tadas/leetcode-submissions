@@ -17,9 +17,6 @@ class Solution:
 
         i = start + 1
         while i < len(self.candidates):
-            if i > start + 1 and self.candidates[i] == self.candidates[i - 1]:
-                i += 1
-                continue
-
-            self.cs2Helper(path + [self.candidates[i]], i, pathSum + self.candidates[i])
+            if not (i > start + 1 and self.candidates[i] == self.candidates[i - 1]):
+                self.cs2Helper(path + [self.candidates[i]], i, pathSum + self.candidates[i])
             i += 1
