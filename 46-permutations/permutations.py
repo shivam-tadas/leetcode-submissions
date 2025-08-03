@@ -6,16 +6,16 @@ class Solution:
         if len(nums) == 1:  # If list has only one element
             return [nums]
 
-        permuteList = []
-        self.permuteHelper(nums, [], permuteList)
-        return permuteList
+        self.permutations = []
+        self.permuteHelper(nums, [])
+        return self.permutations
 
-    def permuteHelper(self, nums: List[int], permutation: List[int], permutations: List[List[int]]) -> None:
+    def permuteHelper(self, nums: List[int], permutation: List[int]) -> None:
         if nums == []:
-            permutations.append(permutation.copy())
+            self.permutations.append(permutation.copy())
             return
         
         for i in range(len(nums)):
             x = nums.pop(i)
-            self.permuteHelper(nums, permutation+[x], permutations)
+            self.permuteHelper(nums, permutation+[x])
             nums.insert(i, x)
