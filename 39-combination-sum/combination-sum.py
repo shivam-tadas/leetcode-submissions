@@ -1,31 +1,18 @@
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        self.combinations = []
         self.candidates = candidates
         self.target = target
-        self.curr = []
-        self.cSum = 0
-        self.maxCurr = -1
-        self.combinations = []
-
-        self.combinationSumHelper()
+        self.combinationSumHelper(0, [], 0)
         return self.combinations
 
-    def combinationSumHelper(self) -> None:
-        if self.cSum >= self.target:
-            if self.cSum == self.target:
-                self.combinations.append(self.curr.copy())
+    def combinationSumHelper(self, start: int, curr: List[int], cSum: int) -> None:
+        if cSum > self.target:
             return
 
-        i = 0
-        while i < len(self.candidates):
-            if self.candidates[i] >= self.maxCurr:
-                tmp = self.maxCurr
-                self.maxCurr = self.candidates[i]
-                self.cSum += self.candidates[i]
-                self.curr.append(self.candidates[i])
-                self.combinationSumHelper()
-                self.curr.pop()
-                self.cSum -= self.candidates[i]
-                self.maxCurr = tmp  # Backtrack to previous state
-                
-            i += 1
+        if cSum == self.target:
+            self.combinations.append(curr)
+            return
+        
+        for i in range(start, len(self.candidates)):
+            self.combinationSumHelper(i, curr + [self.candidates[i]], cSum + self.candidates[i])
