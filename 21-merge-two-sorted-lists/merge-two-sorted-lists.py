@@ -6,32 +6,38 @@
 
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        newList = ListNode()
-        ptr = newList
-        while list1 and list2:
-            if list1.val == list2.val:
-                ptr.next = ListNode(list1.val)
-                ptr.next.next = ListNode(list2.val)
-                ptr = ptr.next.next
-                list1 = list1.next
-                list2 = list2.next
-            elif list1.val < list2.val:
-                ptr.next = ListNode(list1.val)
+        l1_ptr = list1
+        l2_ptr = list2
+        new_list = ListNode()
+        ptr = new_list
+
+        while l1_ptr and l2_ptr:
+            if l1_ptr.val > l2_ptr.val:
+                ptr.next = ListNode(l2_ptr.val)
                 ptr = ptr.next
-                list1 = list1.next
-            else:
-                ptr.next = ListNode(list2.val)
+                l2_ptr = l2_ptr.next
+
+            elif l2_ptr.val > l1_ptr.val:
+                ptr.next = ListNode(l1_ptr.val)
                 ptr = ptr.next
-                list2 = list2.next
+                l1_ptr = l1_ptr.next
 
-        while list1:
-            ptr.next = ListNode(list1.val)
+            elif l1_ptr.val == l2_ptr.val:
+                ptr.next = ListNode(l1_ptr.val)
+                ptr = ptr.next
+                l1_ptr = l1_ptr.next
+                ptr.next = ListNode(l2_ptr.val)
+                ptr = ptr.next
+                l2_ptr = l2_ptr.next
+        
+        while l1_ptr:
+            ptr.next = ListNode(l1_ptr.val)
+            l1_ptr = l1_ptr.next
             ptr = ptr.next
-            list1 = list1.next
 
-        while list2:
-            ptr.next = ListNode(list2.val)
+        while l2_ptr:
+            ptr.next = ListNode(l2_ptr.val)
+            l2_ptr = l2_ptr.next
             ptr = ptr.next
-            list2 = list2.next
 
-        return newList.next
+        return new_list.next
