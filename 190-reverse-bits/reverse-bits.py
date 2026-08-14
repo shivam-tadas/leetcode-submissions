@@ -1,8 +1,7 @@
 class Solution:
     def reverseBits(self, n: int) -> int:
-        i = 0
         ans = 0
-
+        i = 0
         while i < 32:
             ans *= 2
             ans += n % 2
