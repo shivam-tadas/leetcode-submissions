@@ -10,11 +10,8 @@ class Solution:
                 if s[i] == t[j]:
                     found = True
                     lastFoundIndex = j
-                    print("found is true")
                     break
             if found == False:
-                print("Found is false, stopping")
                 return False
 
-        print("is a subsequence")
         return True
