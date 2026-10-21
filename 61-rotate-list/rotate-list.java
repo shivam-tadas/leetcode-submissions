@@ -13,7 +13,7 @@ class Solution {
     public ListNode rotateRight(ListNode head, int k) {
         if (head == null) return null;
 
-        if (head.next == null) return head;
+        if (k == 0 || head.next == null) return head;
 
         int listLen = 0, rotationPt = 0, i;
         ListNode ptr = head, ans = null, ptr2 = null;
@@ -24,7 +24,7 @@ class Solution {
         ptr = head;
         k %= listLen;
         if (k == 0) return head;
-        
+
         for (i = 0; i < listLen - k; ++i) ptr = ptr.next;
         ans = new ListNode(ptr.val);
         ptr = ptr.next;
