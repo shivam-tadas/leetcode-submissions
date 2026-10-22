@@ -13,8 +13,6 @@ class Solution {
             }
             else return false;
         }
-        
-
         return stk.isEmpty();
     }
 }
