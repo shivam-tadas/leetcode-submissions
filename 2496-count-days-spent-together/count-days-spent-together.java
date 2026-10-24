@@ -25,11 +25,16 @@ class Solution {
         bobStart = new Integer(cummulativeMonthDays.get(new Integer(arriveBob.substring(0,2))-1) + new Integer(arriveBob.substring(3,5)));
         bobEnd = new Integer(cummulativeMonthDays.get(new Integer(leaveBob.substring(0,2))-1) + new Integer(leaveBob.substring(3,5)));
 
-        int ans = 0;
-        for (int i = Math.min(Math.min(aliceStart, aliceEnd), Math.min(bobStart, bobEnd)); i <= Math.max(Math.max(aliceStart, aliceEnd), Math.max(bobStart, bobEnd)); i++)
-            if (i >= aliceStart && i <= aliceEnd && i >= bobStart && i <= bobEnd)
-                ++ans;
+        System.out.println(aliceStart + " " + aliceEnd + " " + bobStart + " " + bobEnd);
+        if (bobStart > aliceEnd || aliceStart > bobEnd)
+            return 0;
 
-        return ans;
+        if (aliceStart < bobStart && aliceEnd > bobEnd)
+            return bobEnd - bobStart + 1;
+
+        if (bobStart < aliceStart && bobEnd > aliceEnd)
+            return aliceEnd - aliceStart + 1;
+            
+        return Math.min(aliceEnd, bobEnd) - Math.max(aliceStart, bobStart) + 1;
     }
 }
