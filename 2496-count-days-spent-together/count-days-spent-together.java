@@ -24,8 +24,6 @@ class Solution {
         aliceEnd = new Integer(cummulativeMonthDays.get(new Integer(leaveAlice.substring(0,2))-1) + new Integer(leaveAlice.substring(3,5)));
         bobStart = new Integer(cummulativeMonthDays.get(new Integer(arriveBob.substring(0,2))-1) + new Integer(arriveBob.substring(3,5)));
         bobEnd = new Integer(cummulativeMonthDays.get(new Integer(leaveBob.substring(0,2))-1) + new Integer(leaveBob.substring(3,5)));
-
-        System.out.println(aliceStart + " " + aliceEnd + " " + bobStart + " " + bobEnd);
         if (bobStart > aliceEnd || aliceStart > bobEnd)
             return 0;
 
