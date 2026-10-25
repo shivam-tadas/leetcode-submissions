@@ -5,12 +5,8 @@ class Solution {
         Map<Integer, Integer> indices = new HashMap<>();
         for (i = 0; i < n; i++)
             indices.put(nums[i], i);
-
-        for (i = 0; i < n; i++)
-            System.out.println(nums[i] + " " + indices.get(nums[i]));
         
         for (i = 0; i < n; i++) {
-            System.out.println(indices.containsKey(target-nums[i]));
             if (indices.containsKey(target-nums[i]) && indices.get(target-nums[i]) != i) {
                 ans[0] = i;
                 ans[1] = indices.get(target-nums[i]);
