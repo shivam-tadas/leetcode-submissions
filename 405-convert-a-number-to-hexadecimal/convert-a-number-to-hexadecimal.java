@@ -23,9 +23,7 @@ class Solution {
 
         for (i = 0; i < 8; ++i) {
             tmp = (num >> (i * 4)) & 15;    // Shift and extract last 4 digits by iteration
-            System.out.println(tmp);
             ans.append(digits.get(tmp));
-            System.out.println(ans);
         }
         ans.reverse();
         while (ans.length() > 1 && ans.charAt(0) == '0')
