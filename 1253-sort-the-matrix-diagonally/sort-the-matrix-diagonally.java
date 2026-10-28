@@ -5,15 +5,12 @@ class Solution {
         ans = new int[m][n];
         currMat = mat;
 
-        // Perform sort considering every diagonal
-        for (i=1; i<m; ++i) {
-            // column 0 elements except the first one
+        for (i=1; i<m; i++) {
             step = Math.min(m-i, n);
             diagSortHelper(i, 0, step);
         }
 
-        for (i=0; i<n; ++i) {
-            // row 0 elements
+        for (i=0; i<n; i++) {
             step = Math.min(m, n-i);
             diagSortHelper(0, i, step);
         }
@@ -23,12 +20,12 @@ class Solution {
 
     private void diagSortHelper(int baseRow, int baseCol, int step) {
         List<Integer> currDiag = new ArrayList<>();
-        for (int i=0; i<step; ++i)
+        for (int i=0; i<step; i++)
             currDiag.add(currMat[baseRow+i][baseCol+i]);
         
         Collections.sort(currDiag);
 
-        for (int i=0; i<step; ++i)
+        for (int i=0; i<step; i++)
             ans[baseRow+i][baseCol+i] = currDiag.get(i);
     }
 }
