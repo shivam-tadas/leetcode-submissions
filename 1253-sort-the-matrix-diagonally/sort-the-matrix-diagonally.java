@@ -22,12 +22,9 @@ class Solution {
     }
 
     private void diagSortHelper(int baseRow, int baseCol, int step) {
-        System.out.println(step);
         List<Integer> currDiag = new ArrayList<>();
-        for (int i=0; i<step; ++i) {
-            System.out.println((baseRow+i) + " " + (baseCol+i));
+        for (int i=0; i<step; ++i)
             currDiag.add(currMat[baseRow+i][baseCol+i]);
-        }
         
         Collections.sort(currDiag);
 
