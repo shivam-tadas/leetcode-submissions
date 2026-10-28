@@ -31,11 +31,11 @@ class Solution {
         }
 
         for (int i = 1; i <= 8; i *= 2) {
-            if ((hour | i) == hour) continue;
+            if ((hour | i) == hour || (hour | i) > 11) continue;
             readBinaryWatchHelper(remaining-1, hour | i, min);
         }
         for (int i = 1; i <= 32; i *= 2) {
-            if ((min | i) == min) continue;
+            if ((min | i) == min || (min | i) > 59) continue;
             readBinaryWatchHelper(remaining-1, hour, min | i);
         }
     }
