@@ -13,7 +13,7 @@ class Solution {
         mapping.forEach((size, persons) -> {
             List<Integer> curr = new ArrayList<>();
             for (int i = 0; i < persons.size(); i++) {
-                if (i != 0 && i % size == 0) {
+                if (i > 0 && i % size == 0) {
                     ans.add(curr);
                     curr = new ArrayList<>();
                 }
