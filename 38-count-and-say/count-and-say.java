@@ -4,11 +4,10 @@ class Solution {
         
         int i = 1;
         String ans = "", tmp = RLE("1");
-        for (i = 2; i <= n; i++) {
+        for (i = 1; i < n; ++i) {
             ans = tmp;
             tmp = RLE(ans);
         }
-
         return ans;
     }
 
