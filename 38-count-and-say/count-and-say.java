@@ -1,8 +1,15 @@
 class Solution {
     public String countAndSay(int n) {
         if (n == 1) return "1";
+        
+        int i = 1;
+        String ans = "", tmp = RLE("1");
+        for (i = 2; i <= n; i++) {
+            ans = tmp;
+            tmp = RLE(ans);
+        }
 
-        return RLE(countAndSay(n-1));        
+        return ans;
     }
 
     private String RLE(String n) {
