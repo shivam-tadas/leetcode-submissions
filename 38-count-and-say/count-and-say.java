@@ -6,7 +6,6 @@ class Solution {
     }
 
     private String RLE(String n) {
-        System.out.println(n);
         String ret = "";
         char curr = n.charAt(0);
         int freq = 0;
