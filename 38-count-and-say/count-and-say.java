@@ -3,7 +3,7 @@ class Solution {
         if (n == 1) return "1";
         
         int i = 1;
-        String ans = "", tmp = RLE("1");
+        String ans = "", tmp = "11";
         for (i = 1; i < n; ++i) {
             ans = tmp;
             tmp = RLE(ans);
@@ -14,15 +14,15 @@ class Solution {
     private String RLE(String n) {
         StringBuilder ret = new StringBuilder("");
         char curr = n.charAt(0);
-        int freq = 0;
-        for (int i = 0; i < n.length(); ++i) {
+        int freq = 1;
+        for (int i = 1; i < n.length(); ++i) {
             if (n.charAt(i) != curr) {
-                ret.append(freq + "" + curr);
+                ret.append(freq).append(curr);
                 curr = n.charAt(i);
                 freq = 1;
             } else ++freq;
         }
-        ret.append(freq + "" + curr);
+        ret.append(freq).append(curr);
         return ret.toString();
     }
 }
