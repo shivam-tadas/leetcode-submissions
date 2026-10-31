@@ -12,17 +12,17 @@ class Solution {
     }
 
     private String RLE(String n) {
-        String ret = "";
+        StringBuilder ret = new StringBuilder("");
         char curr = n.charAt(0);
         int freq = 0;
         for (int i = 0; i < n.length(); ++i) {
             if (n.charAt(i) != curr) {
-                ret = ret + "" + freq + "" + curr;
+                ret.append(freq + "" + curr);
                 curr = n.charAt(i);
                 freq = 1;
             } else ++freq;
         }
-        ret = ret + "" + freq + "" + curr;
-        return ret;
+        ret.append(freq + "" + curr);
+        return ret.toString();
     }
 }
