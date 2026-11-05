@@ -20,7 +20,6 @@ class Solution {
                     break;
             }
             if (l == r) mid = (l+r) / 2;
-            System.out.println();
             if (arr2[mid] > upper || arr2[mid] < lower)
                 ++dVal;
         }
