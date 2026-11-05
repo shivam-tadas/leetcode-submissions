@@ -12,7 +12,6 @@ class Solution {
             while (l < r) {
                 mid = (l+r) / 2;
                 m = arr2[mid];
-                System.out.println("in binary search " + l + " " + mid + " " + r);
                 if (m > upper)
                     r = mid;
                 else if (m < lower)
@@ -22,10 +21,8 @@ class Solution {
             }
             if (l == r) mid = (l+r) / 2;
             System.out.println();
-            if (arr2[mid] > upper || arr2[mid] < lower) {
+            if (arr2[mid] > upper || arr2[mid] < lower)
                 ++dVal;
-                System.out.println("dVal updated\n");
-            }
         }
         return dVal;
     }
