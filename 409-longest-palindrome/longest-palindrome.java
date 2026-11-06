@@ -1,5 +1,7 @@
 class Solution {
     public int longestPalindrome(String s) {
+        if (s == null || s.length() == 0) return 0;
+        
         Map<Character, Integer> occurence = new HashMap<>();
         int ans[] = new int[1];
         boolean hasOdd[] = { false };
@@ -15,7 +17,7 @@ class Solution {
         });
 
         if (hasOdd[0]) return ans[0] + 1;
-        
+
         return ans[0];
     }
 }
