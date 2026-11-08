@@ -27,15 +27,15 @@ class Solution {
             }
 
             if (sumDigit <= '9')
-                ans.insert(0, sumDigit);
+                ans.append(sumDigit);
             else {
-                ans.insert(0, (char)(sumDigit - 10));
+                ans.append((char)(sumDigit - 10));
                 carry = true;
             }
             ++digitPos;
         }
-        if (carry) ans.insert(0, '1');
+        if (carry) ans.append('1');
         
-        return ans.toString();
+        return ans.reverse().toString();
     }
 }
