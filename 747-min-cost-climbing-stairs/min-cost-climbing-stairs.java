@@ -8,7 +8,7 @@ class Solution {
         for (int i = n-2; i >= 0; --i)
             dp.set(i, cost[i] + Math.min(dp.get(i+1), dp.get(i+2)));
 
-        System.out.println(dp);
+        // System.out.println(dp);
         
         return Math.min(dp.get(0), dp.get(1));
     }
