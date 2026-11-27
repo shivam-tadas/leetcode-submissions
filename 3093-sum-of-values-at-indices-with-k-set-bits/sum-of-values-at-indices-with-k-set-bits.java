@@ -10,10 +10,8 @@ class Solution {
         }
         int ans = 0;
         for (int i = 0; i < n; ++i)
-            if (setBits[i] == k) {
-                System.out.println(nums.get(i));
+            if (setBits[i] == k)
                 ans += nums.get(i);
-            }
         
         return ans;
     }
